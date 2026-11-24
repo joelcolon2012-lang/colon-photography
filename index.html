@@ -11,7 +11,7 @@
 <meta property="og:locale" content="es_DO">
 <meta property="og:title" content="Colón Photography Studios · Estudio de fotografía en San Francisco de Macorís">
 <meta property="og:description" content="Retratos, bodas, maternidad y quince años. La luz, contada con intención.">
-<meta property="og:image" content="https://colonphotographystudios.vercel.app/boda-exterior.jpg">
+<meta property="og:image" content="https://colonphotographystudios.vercel.app/img/og.jpg">
 <meta property="og:url" content="https://colonphotographystudios.vercel.app/">
 <meta name="theme-color" content="#0c0b0a">
 <link rel="icon" href="logo.jpg">
@@ -27,7 +27,7 @@
   "description": "Estudio de fotografía de autor en San Francisco de Macorís: retratos en estudio, bodas, maternidad y quince años en exterior. Con cita previa.",
   "slogan": "La luz, contada con intención.",
   "url": "https://colonphotographystudios.vercel.app/",
-  "image": "https://colonphotographystudios.vercel.app/boda-exterior.jpg",
+  "image": "https://colonphotographystudios.vercel.app/img/og.jpg",
   "logo": "https://colonphotographystudios.vercel.app/logo.jpg",
   "telephone": "+1-829-315-9791",
   "address": {
@@ -94,7 +94,7 @@ nav a:hover{color:var(--cream)}
 .hero p{max-width:440px;margin:34px 0 46px;color:var(--muted);font-size:1rem}
 .hero-actions{display:flex;gap:18px;flex-wrap:wrap}
 .hero-img{position:relative;overflow:hidden}
-.hero-img img{filter:saturate(.85) contrast(1.05)}
+.hero-img img{filter:saturate(.9) contrast(1.05);object-position:50% 72%}
 .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(12,11,10,0) 28%)}
 .frame{position:absolute;inset:28px;border:1px solid rgba(240,215,143,.45);z-index:2;pointer-events:none}
 
@@ -117,19 +117,18 @@ h2 em{font-style:italic}
 .svc p{color:var(--muted);font-size:.9rem}
 
 /* gallery */
-.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:14px}
-.gallery figure{position:relative;overflow:hidden;background:var(--ink-2)}
-.gallery figure img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.gallery figure:hover img{transform:scale(1.04)}
-.gallery figcaption{position:absolute;left:18px;bottom:16px;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:all .4s;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:-30px 0 40px}
+.filters button{background:none;border:1px solid var(--line);color:var(--muted);font:500 .66rem var(--sans);letter-spacing:.28em;text-transform:uppercase;padding:12px 18px;cursor:pointer;transition:all .3s}
+.filters button:hover{color:var(--cream);border-color:var(--gold)}
+.filters button[aria-pressed=true]{background:var(--goldgrad);color:var(--ink);border-color:transparent}
+.gallery{columns:3 320px;column-gap:14px}
+.gallery figure{position:relative;overflow:hidden;background:var(--ink-2);margin:0 0 14px;break-inside:avoid}
+.gallery figure.hide{display:none}
+.gallery figure img{height:auto;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.gallery figure:hover img{transform:scale(1.03)}
+.gallery figcaption{position:absolute;left:18px;bottom:16px;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:all .4s;text-shadow:0 1px 8px rgba(0,0,0,.7)}
 .gallery figure:hover figcaption{opacity:1;transform:none}
-.g1{grid-column:span 2;grid-row:span 3}
-.g2{grid-column:span 2;grid-row:span 2}
-.g3{grid-column:span 2;grid-row:span 3}
-.g4{grid-column:span 2;grid-row:span 3}
-.g5{grid-column:span 2;grid-row:span 2}
-.g-cta{grid-column:span 2;grid-row:span 2;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;transition:all .35s}
-.g-cta:hover{border-color:var(--gold);color:var(--gold-hi)}
+.g-more{text-align:center;margin-top:40px}
 
 /* quote */
 .quote{text-align:center;padding:150px 0;background:radial-gradient(ellipse at center,#1a1814 0%,var(--ink) 70%)}
@@ -175,11 +174,9 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
   section{padding:100px 0}
   .services{grid-template-columns:1fr 1fr}
   .svc,.svc + .svc{padding:36px 24px 40px 0;border-right:0;border-bottom:1px solid var(--line)}
-  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
-  .g1,.g3{grid-column:span 1;grid-row:span 2}
-  .g2,.g4{grid-column:span 1;grid-row:span 2}
-  .g5{grid-column:span 2;grid-row:span 2}
-  .g-cta{grid-column:span 2;grid-row:span 1}
+  .gallery{columns:2 160px;column-gap:10px}
+  .gallery figure{margin-bottom:10px}
+  .filters{margin-top:-20px}
   .steps{grid-template-columns:1fr 1fr;gap:44px}
   .book{grid-template-columns:1fr}
   .book-img{min-height:380px}
@@ -238,7 +235,7 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
     </div>
     <div class="hero-img">
       <span class="frame" aria-hidden="true"></span>
-      <img src="boda-exterior.jpg" alt="Novios en sesión de boda al aire libre entre pinos, fotografía de Colón Photography en República Dominicana" fetchpriority="high">
+      <img src="img/preboda-capilla.jpg" alt="Pareja en sesión preboda frente a una capilla de piedra, fotografía de Colón Photography" fetchpriority="high">
     </div>
   </section>
 
@@ -263,14 +260,32 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
         <div><span class="caps">Portafolio</span><h2>Momentos que <em>permanecen</em>.</h2></div>
         <p>Una selección reciente. Más historias cada semana en Instagram.</p>
       </div>
-      <div class="gallery">
-        <figure class="g1 reveal"><img src="boda-primer-baile.jpg" alt="Primer baile de los novios con lluvia de confeti en una boda en San Francisco de Macorís"><figcaption>Bodas</figcaption></figure>
-        <figure class="g2 reveal"><img src="retrato-estudio.jpg" alt="Retrato en estudio sobre fondo rojo con iluminación profesional"><figcaption>Retrato en estudio</figcaption></figure>
-        <figure class="g3 reveal"><img src="retrato-mujer.jpg" alt="Retrato de mujer con vestido turquesa en estudio fotográfico"><figcaption>Retrato de autor</figcaption></figure>
-        <figure class="g4 reveal"><img src="retrato-dos.jpg" alt="Sesión de fotos de dos mujeres vestidas de negro en estudio"><figcaption>Sesión en estudio</figcaption></figure>
-        <figure class="g5 reveal"><img src="boda-exterior.jpg" alt="Sesión de novios en exterior con ramo de flores blancas"><figcaption>Preboda en exterior</figcaption></figure>
-        <a class="g-cta reveal" href="https://www.instagram.com/colonphotography/" target="_blank" rel="noopener">Ver más en Instagram →</a>
+      <div class="filters" role="group" aria-label="Filtrar portafolio">
+        <button type="button" data-f="all" aria-pressed="true">Todo</button>
+        <button type="button" data-f="bodas" aria-pressed="false">Bodas</button>
+        <button type="button" data-f="preboda" aria-pressed="false">Preboda</button>
+        <button type="button" data-f="maternidad" aria-pressed="false">Maternidad</button>
+        <button type="button" data-f="estudio" aria-pressed="false">Estudio</button>
+        <button type="button" data-f="exterior" aria-pressed="false">Exterior</button>
       </div>
+      <div class="gallery">
+        <figure class="reveal" data-cat="bodas"><img src="img/hero-boda-pinos.jpg" alt="Novios caminando entre pinos el día de su boda, fotografía en blanco y negro" loading="lazy" decoding="async"><figcaption>Bodas</figcaption></figure>
+        <figure class="reveal" data-cat="estudio"><img src="img/retrato-hombre.jpg" alt="Retrato masculino en estudio con fondo negro e iluminación de bajo clave" loading="lazy" decoding="async"><figcaption>Retrato de autor</figcaption></figure>
+        <figure class="reveal" data-cat="maternidad"><img src="img/maternidad-bn.jpg" alt="Sesión de maternidad en estudio en blanco y negro, pareja esperando a su bebé" loading="lazy" decoding="async"><figcaption>Maternidad</figcaption></figure>
+        <figure class="reveal" data-cat="bodas"><img src="img/boda-novia-ramo.jpg" alt="Novia con ramo de lirios blancos en exterior, boda en República Dominicana" loading="lazy" decoding="async"><figcaption>Bodas</figcaption></figure>
+        <figure class="reveal" data-cat="preboda"><img src="img/preboda-bosque.jpg" alt="Pareja en sesión preboda elegante en el bosque" loading="lazy" decoding="async"><figcaption>Preboda</figcaption></figure>
+        <figure class="reveal" data-cat="estudio"><img src="img/retrato-mujer-estudio.jpg" alt="Retrato de mujer con vestido negro en el estudio de Colón Photography" loading="lazy" decoding="async"><figcaption>Estudio</figcaption></figure>
+        <figure class="reveal" data-cat="exterior"><img src="img/exterior-sombrero.jpg" alt="Sesión de fotos en exterior de joven con sombrero y corsé" loading="lazy" decoding="async"><figcaption>Sesión en exterior</figcaption></figure>
+        <figure class="reveal" data-cat="bodas"><img src="img/boda-iglesia.jpg" alt="Novios sonriendo durante la ceremonia en la iglesia" loading="lazy" decoding="async"><figcaption>Ceremonia</figcaption></figure>
+        <figure class="reveal" data-cat="maternidad"><img src="img/maternidad-estudio.jpg" alt="Sesión de maternidad en estudio, el futuro papá besa la barriga" loading="lazy" decoding="async"><figcaption>Maternidad</figcaption></figure>
+        <figure class="reveal" data-cat="preboda"><img src="img/preboda-capilla.jpg" alt="Pareja en sesión preboda frente a capilla de piedra" loading="lazy" decoding="async"><figcaption>Preboda</figcaption></figure>
+        <figure class="reveal" data-cat="estudio"><img src="img/retrato-perfil.jpg" alt="Retrato de perfil en estudio con vestido negro" loading="lazy" decoding="async"><figcaption>Estudio</figcaption></figure>
+        <figure class="reveal" data-cat="bodas"><img src="img/boda-novia-rosas.jpg" alt="Novia con velo y ramo de rosas rojas el día de su boda" loading="lazy" decoding="async"><figcaption>Bodas</figcaption></figure>
+        <figure class="reveal" data-cat="estudio"><img src="img/creativo-pastel.jpg" alt="Fotografía conceptual de cumpleaños con tacones blancos y pastel" loading="lazy" decoding="async"><figcaption>Concepto creativo</figcaption></figure>
+        <figure class="reveal" data-cat="preboda"><img src="img/preboda-puente.jpg" alt="Beso de pareja en sesión preboda sobre puente de madera" loading="lazy" decoding="async"><figcaption>Preboda</figcaption></figure>
+        <figure class="reveal" data-cat="bodas"><img src="img/novia-amigas.jpg" alt="Novia y sus damas preparándose antes de la boda" loading="lazy" decoding="async"><figcaption>Preparativos</figcaption></figure>
+      </div>
+      <div class="g-more"><a class="btn" href="https://www.instagram.com/colonphotography/" target="_blank" rel="noopener">Ver más en Instagram</a></div>
     </div>
   </section>
 
@@ -299,7 +314,7 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
   <section id="reservar" style="padding-top:40px">
     <div class="wrap">
       <div class="book reveal">
-        <div class="book-img"><img src="retrato-dos.jpg" alt="Retrato en el estudio de Colón Photography en San Francisco de Macorís"></div>
+        <div class="book-img"><img src="img/retrato-mujer-estudio.jpg" alt="Sesión en el estudio de Colón Photography en San Francisco de Macorís" loading="lazy"></div>
         <div class="book-body">
           <span class="caps gold">Reservas</span>
           <h2 style="margin-top:18px">Tu sesión empieza<br>con un <em>mensaje</em>.</h2>
@@ -341,6 +356,8 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
   var h=document.getElementById('top');
   function onScroll(){h.classList.toggle('solid',window.scrollY>40)}
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  var bs=document.querySelectorAll('.filters button'),fs=document.querySelectorAll('.gallery figure');
+  bs.forEach(function(b){b.addEventListener('click',function(){var f=b.dataset.f;bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});fs.forEach(function(g){g.classList.toggle('hide',f!=='all'&&g.dataset.cat!==f);g.classList.add('in')})})});
   var els=document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
