@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://joelcolon2012-lang.github.io/colon-photography/sitemap.xml
