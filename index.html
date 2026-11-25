@@ -227,6 +227,30 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
 .dna p{margin:2px 0 0}
 .lema{font-family:var(--serif);font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.1;margin:0 0 16px}
 @media (max-width:760px){.ch{grid-template-columns:1fr;gap:14px;padding:34px 0}.sw{grid-template-columns:repeat(3,1fr)}}
+
+/* Nota hero */
+.hero .hero-note{display:flex;align-items:center;gap:16px;margin:-14px 0 40px;max-width:none;line-height:1.8;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream)}
+.hero .hero-note::before{content:"";width:38px;height:1px;background:var(--goldgrad);flex:none}
+.hero .hero-note b{font-weight:500;color:var(--gold)}
+/* Visor de fotos */
+.gallery figure{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(8,7,6,.96);display:none;align-items:center;justify-content:center;touch-action:none}
+.lb.open{display:flex;animation:lbIn .35s ease}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+.lb-stage{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.lb-img{max-width:92vw;max-height:84vh;width:auto;height:auto;object-fit:contain;cursor:zoom-in;transition:transform .35s cubic-bezier(.2,.7,.2,1);user-select:none;-webkit-user-drag:none;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb.zoomed .lb-img{cursor:grab;transition:none}
+.lb-btn{position:absolute;background:none;border:1px solid rgba(201,162,74,.55);color:var(--cream);width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,border-color .3s;z-index:2}
+.lb-btn:hover,.lb-btn:focus-visible{background:rgba(201,162,74,.14);border-color:var(--gold);outline:none}
+.lb-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.4}
+.lb-close{top:22px;right:22px}
+.lb-prev{left:22px;top:50%;margin-top:-26px}
+.lb-next{right:22px;top:50%;margin-top:-26px}
+.lb-bar{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:22px;align-items:baseline;padding:0 90px;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);text-align:center;pointer-events:none}
+.lb-count{color:var(--gold);flex:none}
+.lb-hint{white-space:nowrap;position:absolute;top:34px;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);pointer-events:none}
+.lb.zoomed .lb-hint,.lb.zoomed .lb-bar{opacity:0}
+@media (max-width:760px){.lb-prev,.lb-next{top:auto;bottom:60px;margin:0}.lb-prev{left:16px}.lb-next{right:16px}.lb-close{top:14px;right:14px}.lb-img{max-width:100vw;max-height:74vh}.lb-bar{padding:0 80px;bottom:76px}.lb-hint{top:30px;left:20px;transform:none;font-size:.55rem}}
 </style>
 </head>
 <body>
@@ -270,6 +294,7 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
         <span class="display">La luz, <em>contada</em><br>con intención.</span>
       </h1>
       <p>Fotografía de autor para retratos, bodas, maternidad y quince años. Pocas sesiones, más tiempo y una entrega curada imagen por imagen.</p>
+      <p class="hero-note"><span>Sesiones de estudio · <b>máximo 4 personas</b></span></p>
       <div class="hero-actions">
         <a class="btn fill" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20reservar%20una%20sesi%C3%B3n%20con%20Col%C3%B3n%20Photography" target="_blank" rel="noopener">Reservar por WhatsApp</a>
         <a class="btn" href="catalogo-colon-photography-2026.pdf" target="_blank" rel="noopener">Ver catálogo</a>
@@ -588,6 +613,49 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
   els.forEach(function(e){io.observe(e)});
 })();
 </script>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visor de fotos" hidden>
+  <div class="lb-stage" id="lbStage"><img class="lb-img" id="lbImg" alt=""></div>
+  <span class="lb-hint">Toca la foto para ampliar</span>
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Foto anterior"><svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg></button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Foto siguiente"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
+  <div class="lb-bar"><span class="lb-count" id="lbCount"></span><span id="lbCap"></span></div>
+</div>
+<script>(function(){
+var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),stage=document.getElementById('lbStage'),
+cap=document.getElementById('lbCap'),cnt=document.getElementById('lbCount'),list=[],i=0,z=1,tx=0,ty=0,last=null;
+function title(a){return (a||'').split(' · ')[0]}
+function apply(){img.style.transform='translate('+tx+'px,'+ty+'px) scale('+z+')';lb.classList.toggle('zoomed',z>1)}
+function reset(){z=1;tx=ty=0;img.style.transformOrigin='50% 50%';apply()}
+function show(n){i=(n+list.length)%list.length;var s=list[i];reset();img.src=s.currentSrc||s.src;img.alt=s.alt;cap.textContent=title(s.alt);cnt.textContent=(i+1)+' / '+list.length}
+function open(el){var g=el.closest('.gallery');list=[].slice.call(g.querySelectorAll('figure:not(.hide) img'));last=document.activeElement;lb.hidden=false;lb.classList.add('open');document.body.style.overflow='hidden';show(list.indexOf(el));document.getElementById('lbClose').focus()}
+function close(){lb.classList.remove('open');lb.hidden=true;document.body.style.overflow='';reset();if(last)last.focus()}
+document.querySelectorAll('.gallery figure').forEach(function(f){var im=f.querySelector('img');f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label','Ampliar: '+title(im.alt));
+f.addEventListener('click',function(){open(im)});f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(im)}})});
+document.getElementById('lbClose').onclick=close;
+document.getElementById('lbPrev').onclick=function(){show(i-1)};
+document.getElementById('lbNext').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft')show(i-1);else if(e.key==='ArrowRight')show(i+1)});
+stage.addEventListener('click',function(e){if(e.target===stage&&z===1)close()});
+/* zoom: toque/clic para ampliar en el punto, arrastrar para mover, rueda para acercar */
+var down=null,moved=false,pts={},pinch0=0,z0=1;
+function zoomAt(cx,cy,nz){var r=img.getBoundingClientRect();var ox=(cx-r.left)/r.width*100,oy=(cy-r.top)/r.height*100;
+ if(z===1){img.style.transformOrigin=ox+'% '+oy+'%'}z=Math.min(4,Math.max(1,nz));if(z===1){tx=ty=0}apply()}
+img.addEventListener('pointerdown',function(e){pts[e.pointerId]=e;img.setPointerCapture(e.pointerId);moved=false;
+ var k=Object.keys(pts);if(k.length===2){var a=pts[k[0]],b=pts[k[1]];pinch0=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);z0=z}
+ down={x:e.clientX,y:e.clientY,tx:tx,ty:ty}});
+img.addEventListener('pointermove',function(e){if(!pts[e.pointerId])return;pts[e.pointerId]=e;var k=Object.keys(pts);
+ if(k.length===2){var a=pts[k[0]],b=pts[k[1]],d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);if(z===1){img.style.transformOrigin=((a.clientX+b.clientX)/2-img.getBoundingClientRect().left)/img.getBoundingClientRect().width*100+'% '+((a.clientY+b.clientY)/2-img.getBoundingClientRect().top)/img.getBoundingClientRect().height*100+'%'}z=Math.min(4,Math.max(1,z0*d/pinch0));if(z===1){tx=ty=0}apply();moved=true;return}
+ var dx=e.clientX-down.x,dy=e.clientY-down.y;if(Math.abs(dx)+Math.abs(dy)>6)moved=true;
+ if(z>1){tx=down.tx+dx;ty=down.ty+dy;apply()}});
+function up(e){var k=Object.keys(pts);delete pts[e.pointerId];if(k.length>1){down=null;return}
+ if(!down)return;var dx=e.clientX-down.x;
+ if(!moved){zoomAt(e.clientX,e.clientY,z>1?1:2.4)}
+ else if(z===1&&Math.abs(dx)>60){show(dx<0?i+1:i-1)}down=null}
+img.addEventListener('pointerup',up);img.addEventListener('pointercancel',function(e){delete pts[e.pointerId];down=null});
+img.addEventListener('wheel',function(e){e.preventDefault();zoomAt(e.clientX,e.clientY,z*(e.deltaY<0?1.2:1/1.2))},{passive:false});
+})();</script>
 <script>(function(){var d=document.querySelector('.filo');function o(){if(location.hash==='#filosofia'&&d)d.open=true}document.querySelectorAll('a[href="#filosofia"]').forEach(function(a){a.addEventListener('click',function(){d.open=true})});window.addEventListener('hashchange',o);o()})();</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
