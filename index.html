@@ -135,6 +135,28 @@ h2 em{font-style:italic}
 .gallery figcaption{position:absolute;left:18px;bottom:16px;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:all .4s;text-shadow:0 1px 8px rgba(0,0,0,.7)}
 .gallery figure:hover figcaption{opacity:1;transform:none}
 
+/* albums de bodas */
+.albums-hint{color:var(--muted);font-size:.85rem;margin:-6px 0 22px}
+.albums{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.album{display:block;cursor:pointer;color:inherit}
+.album-cover{display:block;position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink-2)}
+.album-cover::after{content:"";position:absolute;inset:12px;border:1px solid rgba(240,215,143,.0);transition:border-color .5s}
+.album-cover img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s;filter:saturate(.92)}
+.album:hover .album-cover img,.album:focus-visible .album-cover img{transform:scale(1.04);filter:saturate(1)}
+.album:hover .album-cover::after,.album:focus-visible .album-cover::after{border-color:rgba(240,215,143,.55)}
+.album-meta{display:block;padding:16px 2px 6px}
+.album-n{display:block;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.album-t{display:block;font-family:var(--serif);font-size:1.45rem;line-height:1.2;margin:8px 0 6px}
+.album-d{display:block;color:var(--muted);font-size:.85rem;line-height:1.5}
+.album-view{scroll-margin-top:150px;margin-top:10px}
+.album-bar{display:flex;align-items:center;gap:26px;flex-wrap:wrap;border-top:1px solid var(--line);padding:22px 0 24px}
+.album-bar h4{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.15;margin-top:4px}
+.album-back{background:none;border:1px solid var(--gold);color:var(--cream);font:500 .64rem var(--sans);letter-spacing:.26em;text-transform:uppercase;padding:12px 18px;cursor:pointer;transition:all .3s}
+.album-back:hover{background:var(--gold);color:var(--ink)}
+.albums.is-hidden{display:none}
+@media (max-width:1000px){.albums{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.albums{gap:12px}.album-t{font-size:1.15rem}.album-d{display:none}}
+
 /* quote */
 .quote{text-align:center;padding:150px 0;background:radial-gradient(ellipse at center,#1a1814 0%,var(--ink) 70%)}
 .quote blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(2rem,4vw,3.3rem);line-height:1.2;max-width:880px;margin:0 auto}
@@ -339,43 +361,128 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
       </nav>
       <div class="pgroup" id="p-bodas">
         <div class="pgroup-head reveal"><h3>Bodas</h3><p>Ceremonia, preparativos y retratos de novios. Cada boda se planifica a la medida.</p><a class="plink" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n%20de%20bodas" target="_blank" rel="noopener">Cotizar bodas →</a></div>
-        <div class="gallery">
-          <figure><img src="img/hero-boda-pinos.jpg" alt="Novios caminando entre pinos el día de su boda, en blanco y negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-chavon-escalera.jpg" alt="Novios sonriendo en las escaleras de piedra de Altos de Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novia-ramo.jpg" alt="Novia con ramo de lirios blancos en exterior · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-nave-iglesia.jpg" alt="Ceremonia de boda en iglesia vista desde el pasillo central · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-madre-velo.jpg" alt="La madre coloca el velo a la novia en los preparativos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-chavon-rio.jpg" alt="Novios en el mirador de Altos de Chavón sobre el río Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-bosque-abrazo.jpg" alt="Novios abrazados en un camino de pinos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novia-encaje.jpg" alt="Novia con velo de encaje durante la misa de boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-iglesia.jpg" alt="Novios sonriendo durante la ceremonia en la iglesia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-altar.jpg" alt="Novios arrodillados frente al altar · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novia-rosas.jpg" alt="Novia con velo y ramo de rosas rojas · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-camino.jpg" alt="Novio esperando a la novia en un camino entre árboles · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novia-lirios.jpg" alt="Retrato de novia con vestido de hombros descubiertos y lirios · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/novia-amigas.jpg" alt="Novia y sus damas preparándose antes de la boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novia-damas-brindis.jpg" alt="Novia brindando con sus damas en batas rosadas antes de la boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novio-retrato.jpg" alt="Retrato del novio con esmoquin ajustando el puño · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novios-jardin.jpg" alt="Novios en el jardín, el novio sentado y la novia con ramo de lirios · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novia-pinos.jpg" alt="Novia sonriendo en un camino de pinos con ramo blanco · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-altar-rosas.jpg" alt="Novios en el altar con ramo de rosas rojas · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-bn-mirada.jpg" alt="Mirada cómplice de la novia en blanco y negro durante la ceremonia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novia-amigas-cama.jpg" alt="Novia y amigas brindando en la cama durante los preparativos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-vestido-colgado.jpg" alt="Vestido de novia de encaje colgado en el armario antes de la boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-ramo-novia-bata.jpg" alt="Ramo de rosas rojas con rosario y la novia en bata al fondo · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-peinado-bn.jpg" alt="Detalle del peinado de la novia en blanco y negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-novia-bride.jpg" alt="Novia sonriendo en la habitación decorada con globos Bride to be · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-madre-arete.jpg" alt="La madre ayuda a la novia con los aretes durante los preparativos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-chavon-beso-farol.jpg" alt="Novio besa la frente de la novia en el mirador de Altos de Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-chavon-paisaje.jpg" alt="Novios frente al río Chavón con montañas al fondo · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-chavon-frente.jpg" alt="Novios frente con frente con ramo de rosas blancas en Altos de Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-chavon-muro.jpg" alt="Novios abrazados junto al muro de piedra sobre el río Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/boda-chavon-risa.jpg" alt="Novios riendo sentados en las escaleras de piedra · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+        <p class="albums-hint">Elige una boda para ver su historia completa.</p>
+        <div class="albums">
+          <a class="album" href="#boda-otono" data-album="boda-otono"><span class="album-cover"><img src="img/boda-otono-retrato.jpg" alt="Retrato de los novios con ramo de rosas naranjas y blancas en la recepción · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></span><span class="album-meta"><span class="album-n">Lote 01 · 20 fotos</span><span class="album-t">Ceremonia en tonos otoñales</span><span class="album-d">Iglesia, rosas naranjas y una fiesta bajo las luces.</span></span></a>
+          <a class="album" href="#boda-azul" data-album="boda-azul"><span class="album-cover"><img src="img/boda-azul-encuentro.jpg" alt="La novia sonríe al encontrarse con el novio en el altar · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></span><span class="album-meta"><span class="album-n">Lote 02 · 5 fotos</span><span class="album-t">Boda en azul cielo</span><span class="album-d">Damas en celeste, rosas blancas y mucha alegría.</span></span></a>
+          <a class="album" href="#boda-chispas" data-album="boda-chispas"><span class="album-cover"><img src="img/boda-blanco-baile-chispas.jpg" alt="Primer baile de los novios entre chispas frías · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></span><span class="album-meta"><span class="album-n">Lote 03 · 4 fotos</span><span class="album-t">Primer baile entre chispas</span><span class="album-d">Esmoquin blanco, confeti y un baile que nadie olvida.</span></span></a>
+          <a class="album" href="#boda-rosas" data-album="boda-rosas"><span class="album-cover"><img src="img/boda-novia-rosas.jpg" alt="Novia con velo y ramo de rosas rojas · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></span><span class="album-meta"><span class="album-n">Lote 04 · 14 fotos</span><span class="album-t">Rosas rojas</span><span class="album-d">Preparativos con las amigas, misa y un ramo de rosas rojas.</span></span></a>
+          <a class="album" href="#boda-chavon" data-album="boda-chavon"><span class="album-cover"><img src="img/boda-chavon-escalera.jpg" alt="Novios sonriendo en las escaleras de piedra de Altos de Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></span><span class="album-meta"><span class="album-n">Lote 05 · 7 fotos</span><span class="album-t">Altos de Chavón</span><span class="album-d">Retratos de novios sobre el río Chavón.</span></span></a>
+          <a class="album" href="#boda-pinos" data-album="boda-pinos"><span class="album-cover"><img src="img/hero-boda-pinos.jpg" alt="Novios caminando entre pinos el día de su boda, en blanco y negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></span><span class="album-meta"><span class="album-n">Lote 06 · 8 fotos</span><span class="album-t">Entre pinos</span><span class="album-d">Una boda al aire libre entre pinos y lirios.</span></span></a>
+          <a class="album" href="#boda-intima" data-album="boda-intima"><span class="album-cover"><img src="img/boda-intima-paseo.jpg" alt="Pareja paseando de la mano junto a un muro de enredaderas al atardecer · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></span><span class="album-meta"><span class="album-n">Lote 07 · 2 fotos</span><span class="album-t">Boda íntima</span><span class="album-d">Una celebración sencilla, de la mano y sin prisa.</span></span></a>
+          <a class="album" href="#boda-momentos" data-album="boda-momentos"><span class="album-cover"><img src="img/boda-novia-emocion.jpg" alt="Novia emocionada mirando al altar durante la ceremonia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></span><span class="album-meta"><span class="album-n">Lote 08 · 3 fotos</span><span class="album-t">Más momentos</span><span class="album-d">Detalles y emociones de otras bodas.</span></span></a>
+        </div>
+        <div class="album-view" id="boda-otono" hidden>
+          <div class="album-bar"><button type="button" class="album-back">← Todas las bodas</button><div><span class="album-n">Lote 01 · 20 fotos</span><h4>Ceremonia en tonos otoñales</h4></div></div>
+          <div class="gallery">
+            <figure><img src="img/boda-otono-retrato.jpg" alt="Retrato de los novios con ramo de rosas naranjas y blancas en la recepción · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-novios-reclinatorio.jpg" alt="Novios sonrientes en el reclinatorio de la iglesia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-lazo-risa.jpg" alt="Novios riendo con el lazo durante la ceremonia, damas de rojo al fondo · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-anillos-manos.jpg" alt="Novios mostrando sus anillos tras la ceremonia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-altar-sonrisa.jpg" alt="Novios tomados de la mano y sonriendo frente al altar · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-anillos.jpg" alt="El novio coloca el anillo a la novia durante la misa · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-consagracion.jpg" alt="Novios frente al altar durante la consagración, velo largo sobre la alfombra roja · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-altar.jpg" alt="Novios arrodillados frente al altar · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-ramo.jpg" alt="Detalle del ramo de rosas naranjas, blancas y eucalipto con el anillo de la novia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-novio-madre.jpg" alt="El novio entra del brazo de su madre a la iglesia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-madre-lagrima.jpg" alt="La madre seca una lágrima al novio antes de la ceremonia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-novio-risa.jpg" alt="El novio con lazo rojo ríe con sus invitados · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-padrinos.jpg" alt="Padrinos entrando sonrientes por la alfombra roja · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-padrinos-altar.jpg" alt="Novios con sus padrinos frente al crucifijo del altar · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-primer-baile.jpg" alt="Primer baile de los novios con el velo envolviéndolos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-beso-baile.jpg" alt="Beso de los novios durante el primer baile · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-baile.jpg" alt="Novios bailando en la recepción vistos entre las flores · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-brindis.jpg" alt="Novios brindando con champán al entrar a la recepción · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-coronas.jpg" alt="Novios con coronas y gafas de fiesta en la hora loca · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-otono-fiesta.jpg" alt="Novios bailando en la fiesta con efecto de movimiento · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <div class="album-view" id="boda-azul" hidden>
+          <div class="album-bar"><button type="button" class="album-back">← Todas las bodas</button><div><span class="album-n">Lote 02 · 5 fotos</span><h4>Boda en azul cielo</h4></div></div>
+          <div class="gallery">
+            <figure><img src="img/boda-azul-encuentro.jpg" alt="La novia sonríe al encontrarse con el novio en el altar · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-azul-altar.jpg" alt="Novios sonrientes en el altar con las damas de celeste al fondo · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-azul-novia-bride.jpg" alt="Novia con tiara y ramo de rosas blancas en su habitación decorada con globos azules · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-azul-cortejo.jpg" alt="Los novios con su cortejo de damas en celeste y los pajes · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-azul-cortejo-saludo.jpg" alt="Novios y cortejo saludando con alegría junto a la mesa de postres · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <div class="album-view" id="boda-chispas" hidden>
+          <div class="album-bar"><button type="button" class="album-back">← Todas las bodas</button><div><span class="album-n">Lote 03 · 4 fotos</span><h4>Primer baile entre chispas</h4></div></div>
+          <div class="gallery">
+            <figure><img src="img/boda-blanco-baile-chispas.jpg" alt="Primer baile de los novios entre chispas frías · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-blanco-confeti.jpg" alt="Novios celebrando bajo una lluvia de confeti en blanco y negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-blanco-beso.jpg" alt="Beso de los novios en blanco y negro, novio con esmoquin blanco · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-blanco-manos.jpg" alt="Novios tomados de la mano con el ramo de rosas sobre el vestido · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <div class="album-view" id="boda-rosas" hidden>
+          <div class="album-bar"><button type="button" class="album-back">← Todas las bodas</button><div><span class="album-n">Lote 04 · 14 fotos</span><h4>Rosas rojas</h4></div></div>
+          <div class="gallery">
+            <figure><img src="img/boda-novia-rosas.jpg" alt="Novia con velo y ramo de rosas rojas · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-iglesia.jpg" alt="Novios sonriendo durante la ceremonia en la iglesia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-altar-rosas.jpg" alt="Novios en el altar con ramo de rosas rojas · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-bn-mirada.jpg" alt="Mirada cómplice de la novia en blanco y negro durante la ceremonia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-novia-encaje.jpg" alt="Novia con velo de encaje durante la misa de boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-nave-iglesia.jpg" alt="Ceremonia de boda en iglesia vista desde el pasillo central · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-madre-velo.jpg" alt="La madre coloca el velo a la novia en los preparativos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/novia-amigas.jpg" alt="Novia y sus damas preparándose antes de la boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-novia-amigas-cama.jpg" alt="Novia y amigas brindando en la cama durante los preparativos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-novia-bride.jpg" alt="Novia sonriendo en la habitación decorada con globos Bride to be · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-ramo-novia-bata.jpg" alt="Ramo de rosas rojas con rosario y la novia en bata al fondo · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-vestido-colgado.jpg" alt="Vestido de novia de encaje colgado en el armario antes de la boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-peinado-bn.jpg" alt="Detalle del peinado de la novia en blanco y negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-madre-arete.jpg" alt="La madre ayuda a la novia con los aretes durante los preparativos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <div class="album-view" id="boda-chavon" hidden>
+          <div class="album-bar"><button type="button" class="album-back">← Todas las bodas</button><div><span class="album-n">Lote 05 · 7 fotos</span><h4>Altos de Chavón</h4></div></div>
+          <div class="gallery">
+            <figure><img src="img/boda-chavon-escalera.jpg" alt="Novios sonriendo en las escaleras de piedra de Altos de Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-chavon-beso-farol.jpg" alt="Novio besa la frente de la novia en el mirador de Altos de Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-chavon-rio.jpg" alt="Novios en el mirador de Altos de Chavón sobre el río Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-chavon-paisaje.jpg" alt="Novios frente al río Chavón con montañas al fondo · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-chavon-frente.jpg" alt="Novios frente con frente con ramo de rosas blancas en Altos de Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-chavon-muro.jpg" alt="Novios abrazados junto al muro de piedra sobre el río Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-chavon-risa.jpg" alt="Novios riendo sentados en las escaleras de piedra · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <div class="album-view" id="boda-pinos" hidden>
+          <div class="album-bar"><button type="button" class="album-back">← Todas las bodas</button><div><span class="album-n">Lote 06 · 8 fotos</span><h4>Entre pinos</h4></div></div>
+          <div class="gallery">
+            <figure><img src="img/hero-boda-pinos.jpg" alt="Novios caminando entre pinos el día de su boda, en blanco y negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-bosque-abrazo.jpg" alt="Novios abrazados en un camino de pinos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-novia-ramo.jpg" alt="Novia con ramo de lirios blancos en exterior · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-camino.jpg" alt="Novio esperando a la novia en un camino entre árboles · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-novia-lirios.jpg" alt="Retrato de novia con vestido de hombros descubiertos y lirios · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-novio-retrato.jpg" alt="Retrato del novio con esmoquin ajustando el puño · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-novios-jardin.jpg" alt="Novios en el jardín, el novio sentado y la novia con ramo de lirios · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-novia-pinos.jpg" alt="Novia sonriendo en un camino de pinos con ramo blanco · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <div class="album-view" id="boda-intima" hidden>
+          <div class="album-bar"><button type="button" class="album-back">← Todas las bodas</button><div><span class="album-n">Lote 07 · 2 fotos</span><h4>Boda íntima</h4></div></div>
+          <div class="gallery">
+            <figure><img src="img/boda-intima-paseo.jpg" alt="Pareja paseando de la mano junto a un muro de enredaderas al atardecer · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-intima-beso.jpg" alt="Beso de la pareja con un ramo de eucalipto y margaritas · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+        <div class="album-view" id="boda-momentos" hidden>
+          <div class="album-bar"><button type="button" class="album-back">← Todas las bodas</button><div><span class="album-n">Lote 08 · 3 fotos</span><h4>Más momentos</h4></div></div>
+          <div class="gallery">
+            <figure><img src="img/boda-novia-emocion.jpg" alt="Novia emocionada mirando al altar durante la ceremonia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-iglesia-pasillo.jpg" alt="Pasillo de la iglesia decorado con flores blancas antes de la boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+            <figure><img src="img/boda-novia-damas-brindis.jpg" alt="Novia brindando con sus damas en batas rosadas antes de la boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          </div>
         </div>
       </div>
       <div class="pgroup" id="p-preboda">
         <div class="pgroup-head reveal"><h3>Preboda y parejas</h3><p>Sesiones de compromiso y aniversario en locaciones con historia.</p><a class="plink" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n%20de%20preboda%20y%20parejas" target="_blank" rel="noopener">Cotizar preboda y parejas →</a></div>
         <div class="gallery">
+          <figure><img src="img/preboda-amarillo-columnas.jpg" alt="Pareja en sesión preboda entre columnas de ladrillo, ella con vestido amarillo · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/preboda-amarillo-balcon.jpg" alt="Pareja en sesión preboda en un balcón de ladrillo, vestido amarillo y corbata dorada · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/preboda-amarillo-arco.jpg" alt="Pareja en sesión preboda bajo un arco de ladrillo · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/preboda-naranja-balcon.jpg" alt="Pareja abrazada en un balcón de madera vista entre hojas, ella con vestido naranja · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
           <figure><img src="img/preboda-capilla.jpg" alt="Pareja en sesión preboda frente a capilla de piedra · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
           <figure><img src="img/pareja-barco.jpg" alt="Pareja en un barco al atardecer en una marina · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
           <figure><img src="img/preboda-bosque.jpg" alt="Pareja en sesión preboda elegante en el bosque · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
@@ -692,6 +799,21 @@ img.addEventListener('pointerup',up);img.addEventListener('pointercancel',functi
 img.addEventListener('wheel',function(e){e.preventDefault();zoomAt(e.clientX,e.clientY,z*(e.deltaY<0?1.2:1/1.2))},{passive:false});
 })();</script>
 <script>(function(){var d=document.querySelector('.filo');function o(){if(location.hash==='#filosofia'&&d)d.open=true}document.querySelectorAll('a[href="#filosofia"]').forEach(function(a){a.addEventListener('click',function(){d.open=true})});window.addEventListener('hashchange',o);o()})();</script>
+<script>(function(){
+var wrap=document.getElementById('p-bodas');if(!wrap)return;
+var grid=wrap.querySelector('.albums'),hint=wrap.querySelector('.albums-hint');
+function openA(id,scroll){var v=document.getElementById(id);if(!v||!v.classList.contains('album-view'))return false;
+ wrap.querySelectorAll('.album-view').forEach(function(x){x.hidden=true});
+ v.hidden=false;grid.classList.add('is-hidden');if(hint)hint.hidden=true;
+ if(scroll!==false)v.scrollIntoView({behavior:'smooth',block:'start'});return true}
+function back(){wrap.querySelectorAll('.album-view').forEach(function(x){x.hidden=true});grid.classList.remove('is-hidden');if(hint)hint.hidden=false;
+ if(history.replaceState)history.replaceState(null,'','#p-bodas');wrap.scrollIntoView({behavior:'smooth',block:'start'})}
+wrap.querySelectorAll('.album').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var id=a.dataset.album;
+ if(openA(id)&&history.replaceState)history.replaceState(null,'','#'+id)})});
+wrap.querySelectorAll('.album-back').forEach(function(b){b.addEventListener('click',back)});
+document.querySelectorAll('a[href="#p-bodas"]').forEach(function(a){a.addEventListener('click',function(){if(grid.classList.contains('is-hidden'))back()})});
+if(location.hash&&location.hash.indexOf('#boda-')===0)openA(location.hash.slice(1));
+})();</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
