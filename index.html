@@ -117,10 +117,15 @@ h2 em{font-style:italic}
 .svc p{color:var(--muted);font-size:.9rem}
 
 /* gallery */
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin:-30px 0 40px}
-.filters button{background:none;border:1px solid var(--line);color:var(--muted);font:500 .66rem var(--sans);letter-spacing:.28em;text-transform:uppercase;padding:12px 18px;cursor:pointer;transition:all .3s}
-.filters button:hover{color:var(--cream);border-color:var(--gold)}
-.filters button[aria-pressed=true]{background:var(--goldgrad);color:var(--ink);border-color:transparent}
+.cats{position:sticky;top:78px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;margin:-30px 0 50px;padding:12px 0;background:rgba(12,11,10,.92);backdrop-filter:blur(8px)}
+.cats a{border:1px solid var(--line);color:var(--muted);font:500 .64rem var(--sans);letter-spacing:.26em;text-transform:uppercase;padding:11px 16px;transition:all .3s}
+.cats a:hover{color:var(--ink);background:var(--goldgrad);border-color:transparent}
+.pgroup{margin-bottom:90px;scroll-margin-top:150px}
+.pgroup-head{display:flex;align-items:baseline;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px;margin-bottom:26px}
+.pgroup-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3vw,2.4rem)}
+.pgroup-head p{color:var(--muted);font-size:.92rem;flex:1;min-width:240px}
+.plink{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-hi);border-bottom:1px solid var(--gold)}
+.g-more{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .gallery{columns:3 320px;column-gap:14px}
 .gallery figure{position:relative;overflow:hidden;background:var(--ink-2);margin:0 0 14px;break-inside:avoid}
 .gallery figure.hide{display:none}
@@ -128,7 +133,6 @@ h2 em{font-style:italic}
 .gallery figure:hover img{transform:scale(1.03)}
 .gallery figcaption{position:absolute;left:18px;bottom:16px;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:all .4s;text-shadow:0 1px 8px rgba(0,0,0,.7)}
 .gallery figure:hover figcaption{opacity:1;transform:none}
-.g-more{text-align:center;margin-top:40px}
 
 /* quote */
 .quote{text-align:center;padding:150px 0;background:radial-gradient(ellipse at center,#1a1814 0%,var(--ink) 70%)}
@@ -154,7 +158,7 @@ h2 em{font-style:italic}
 
 footer{padding:60px 0 50px;border-top:1px solid var(--line)}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;color:var(--muted);font-size:.78rem}
-.foot .social{display:flex;gap:28px}
+.foot .social{display:flex;gap:14px 24px;flex-wrap:wrap}
 .foot .social a{letter-spacing:.25em;text-transform:uppercase;font-size:.66rem}
 .foot .social a:hover{color:var(--gold-hi)}
 
@@ -176,7 +180,9 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
   .svc,.svc + .svc{padding:36px 24px 40px 0;border-right:0;border-bottom:1px solid var(--line)}
   .gallery{columns:2 160px;column-gap:10px}
   .gallery figure{margin-bottom:10px}
-  .filters{margin-top:-20px}
+  .cats{top:78px;margin:-20px -5vw 36px;padding:10px 5vw;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .cats a{flex:none}
+  .pgroup{margin-bottom:60px}
   .steps{grid-template-columns:1fr 1fr;gap:44px}
   .book{grid-template-columns:1fr}
   .book-img{min-height:380px}
@@ -213,6 +219,7 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
         <li><a href="#portafolio">Portafolio</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#proceso">Experiencia</a></li>
+        <li><a href="https://claude.ai/artifact/BcbJGMuCHCwMwDWKMZ731M" target="_blank" rel="noopener">Catálogo</a></li>
         <li><a href="#reservar">Reservar</a></li>
       </ul>
     </nav>
@@ -230,7 +237,7 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
       <p>Fotografía de autor para retratos, bodas, maternidad y quince años. Pocas sesiones, más tiempo y una entrega curada imagen por imagen.</p>
       <div class="hero-actions">
         <a class="btn fill" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20reservar%20una%20sesi%C3%B3n%20con%20Col%C3%B3n%20Photography" target="_blank" rel="noopener">Reservar por WhatsApp</a>
-        <a class="btn" href="#portafolio">Ver portafolio</a>
+        <a class="btn" href="https://claude.ai/artifact/BcbJGMuCHCwMwDWKMZ731M" target="_blank" rel="noopener">Ver catálogo</a>
       </div>
     </div>
     <div class="hero-img">
@@ -243,34 +250,88 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
     <div class="wrap">
       <div class="head reveal">
         <div><span class="caps">Portafolio</span><h2>Momentos que <em>permanecen</em>.</h2></div>
-        <p>Una selección reciente. Más historias cada semana en Instagram.</p>
+        <p>Elige el tipo de sesión y mira trabajos reales de nuestro estudio.</p>
       </div>
-      <div class="filters" role="group" aria-label="Filtrar portafolio">
-        <button type="button" data-f="all" aria-pressed="true">Todo</button>
-        <button type="button" data-f="bodas" aria-pressed="false">Bodas</button>
-        <button type="button" data-f="preboda" aria-pressed="false">Preboda</button>
-        <button type="button" data-f="maternidad" aria-pressed="false">Maternidad</button>
-        <button type="button" data-f="estudio" aria-pressed="false">Estudio</button>
-        <button type="button" data-f="exterior" aria-pressed="false">Exterior</button>
+      <nav class="cats" aria-label="Tipos de sesión">
+        <a href="#p-bodas">Bodas</a>
+        <a href="#p-preboda">Preboda y parejas</a>
+        <a href="#p-maternidad">Maternidad</a>
+        <a href="#p-estudio">Retratos de estudio</a>
+        <a href="#p-graduacion">Graduaciones</a>
+        <a href="#p-exterior">Exterior y conceptos</a>
+      </nav>
+      <div class="pgroup" id="p-bodas">
+        <div class="pgroup-head reveal"><h3>Bodas</h3><p>Ceremonia, preparativos y retratos de novios. Cada boda se planifica a la medida.</p><a class="plink" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n%20de%20bodas" target="_blank" rel="noopener">Cotizar bodas →</a></div>
+        <div class="gallery">
+          <figure><img src="img/hero-boda-pinos.jpg" alt="Novios caminando entre pinos el día de su boda, en blanco y negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-chavon-escalera.jpg" alt="Novios sonriendo en las escaleras de piedra de Altos de Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-novia-ramo.jpg" alt="Novia con ramo de lirios blancos en exterior · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-nave-iglesia.jpg" alt="Ceremonia de boda en iglesia vista desde el pasillo central · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-madre-velo.jpg" alt="La madre coloca el velo a la novia en los preparativos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-chavon-rio.jpg" alt="Novios en el mirador de Altos de Chavón sobre el río Chavón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-bosque-abrazo.jpg" alt="Novios abrazados en un camino de pinos · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-novia-encaje.jpg" alt="Novia con velo de encaje durante la misa de boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-iglesia.jpg" alt="Novios sonriendo durante la ceremonia en la iglesia · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-altar.jpg" alt="Novios arrodillados frente al altar · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-novia-rosas.jpg" alt="Novia con velo y ramo de rosas rojas · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-camino.jpg" alt="Novio esperando a la novia en un camino entre árboles · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/boda-novia-lirios.jpg" alt="Retrato de novia con vestido de hombros descubiertos y lirios · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/novia-amigas.jpg" alt="Novia y sus damas preparándose antes de la boda · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+        </div>
       </div>
-      <div class="gallery">
-        <figure class="reveal" data-cat="bodas"><img src="img/hero-boda-pinos.jpg" alt="Novios caminando entre pinos el día de su boda, fotografía en blanco y negro" loading="lazy" decoding="async"><figcaption>Bodas</figcaption></figure>
-        <figure class="reveal" data-cat="estudio"><img src="img/retrato-hombre.jpg" alt="Retrato masculino en estudio con fondo negro e iluminación de bajo clave" loading="lazy" decoding="async"><figcaption>Retrato de autor</figcaption></figure>
-        <figure class="reveal" data-cat="maternidad"><img src="img/maternidad-bn.jpg" alt="Sesión de maternidad en estudio en blanco y negro, pareja esperando a su bebé" loading="lazy" decoding="async"><figcaption>Maternidad</figcaption></figure>
-        <figure class="reveal" data-cat="bodas"><img src="img/boda-novia-ramo.jpg" alt="Novia con ramo de lirios blancos en exterior, boda en República Dominicana" loading="lazy" decoding="async"><figcaption>Bodas</figcaption></figure>
-        <figure class="reveal" data-cat="preboda"><img src="img/preboda-bosque.jpg" alt="Pareja en sesión preboda elegante en el bosque" loading="lazy" decoding="async"><figcaption>Preboda</figcaption></figure>
-        <figure class="reveal" data-cat="estudio"><img src="img/retrato-mujer-estudio.jpg" alt="Retrato de mujer con vestido negro en el estudio de Colón Photography" loading="lazy" decoding="async"><figcaption>Estudio</figcaption></figure>
-        <figure class="reveal" data-cat="exterior"><img src="img/exterior-sombrero.jpg" alt="Sesión de fotos en exterior de joven con sombrero y corsé" loading="lazy" decoding="async"><figcaption>Sesión en exterior</figcaption></figure>
-        <figure class="reveal" data-cat="bodas"><img src="img/boda-iglesia.jpg" alt="Novios sonriendo durante la ceremonia en la iglesia" loading="lazy" decoding="async"><figcaption>Ceremonia</figcaption></figure>
-        <figure class="reveal" data-cat="maternidad"><img src="img/maternidad-estudio.jpg" alt="Sesión de maternidad en estudio, el futuro papá besa la barriga" loading="lazy" decoding="async"><figcaption>Maternidad</figcaption></figure>
-        <figure class="reveal" data-cat="preboda"><img src="img/preboda-capilla.jpg" alt="Pareja en sesión preboda frente a capilla de piedra" loading="lazy" decoding="async"><figcaption>Preboda</figcaption></figure>
-        <figure class="reveal" data-cat="estudio"><img src="img/retrato-perfil.jpg" alt="Retrato de perfil en estudio con vestido negro" loading="lazy" decoding="async"><figcaption>Estudio</figcaption></figure>
-        <figure class="reveal" data-cat="bodas"><img src="img/boda-novia-rosas.jpg" alt="Novia con velo y ramo de rosas rojas el día de su boda" loading="lazy" decoding="async"><figcaption>Bodas</figcaption></figure>
-        <figure class="reveal" data-cat="estudio"><img src="img/creativo-pastel.jpg" alt="Fotografía conceptual de cumpleaños con tacones blancos y pastel" loading="lazy" decoding="async"><figcaption>Concepto creativo</figcaption></figure>
-        <figure class="reveal" data-cat="preboda"><img src="img/preboda-puente.jpg" alt="Beso de pareja en sesión preboda sobre puente de madera" loading="lazy" decoding="async"><figcaption>Preboda</figcaption></figure>
-        <figure class="reveal" data-cat="bodas"><img src="img/novia-amigas.jpg" alt="Novia y sus damas preparándose antes de la boda" loading="lazy" decoding="async"><figcaption>Preparativos</figcaption></figure>
+      <div class="pgroup" id="p-preboda">
+        <div class="pgroup-head reveal"><h3>Preboda y parejas</h3><p>Sesiones de compromiso y aniversario en locaciones con historia.</p><a class="plink" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n%20de%20preboda%20y%20parejas" target="_blank" rel="noopener">Cotizar preboda y parejas →</a></div>
+        <div class="gallery">
+          <figure><img src="img/preboda-capilla.jpg" alt="Pareja en sesión preboda frente a capilla de piedra · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/pareja-barco.jpg" alt="Pareja en un barco al atardecer en una marina · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/preboda-bosque.jpg" alt="Pareja en sesión preboda elegante en el bosque · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/pareja-vintage-te.jpg" alt="Sesión de pareja de estilo vintage tomando té en un balcón · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/preboda-puente.jpg" alt="Beso de pareja sobre un puente de madera · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/pareja-elegante.jpg" alt="Pareja de gala con ramo de flores blancas en exterior · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+        </div>
       </div>
-      <div class="g-more"><a class="btn" href="https://www.instagram.com/colonphotography/" target="_blank" rel="noopener">Ver más en Instagram</a></div>
+      <div class="pgroup" id="p-maternidad">
+        <div class="pgroup-head reveal"><h3>Maternidad</h3><p>Luz suave, telas en movimiento y una espera contada con calma.</p><a class="plink" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n%20de%20maternidad" target="_blank" rel="noopener">Cotizar maternidad →</a></div>
+        <div class="gallery">
+          <figure><img src="img/maternidad-capa.jpg" alt="Sesión de maternidad en estudio con capa al viento · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/maternidad-bn.jpg" alt="Sesión de maternidad en estudio en blanco y negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/maternidad-sentada.jpg" alt="Futura mamá sentada con vestido de tul en el estudio · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/maternidad-estudio.jpg" alt="El futuro papá besa la barriga en sesión de maternidad · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+      <div class="pgroup" id="p-estudio">
+        <div class="pgroup-head reveal"><h3>Retratos de estudio</h3><p>Retratos de autor, marca personal y sesiones entre amigas, en el estudio de San Francisco de Macorís.</p><a class="plink" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n%20de%20retratos%20de%20estudio" target="_blank" rel="noopener">Cotizar retratos de estudio →</a></div>
+        <div class="gallery">
+          <figure><img src="img/retrato-hombre.jpg" alt="Retrato masculino en estudio con fondo negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/retrato-azul-arco.jpg" alt="Retrato de mujer con vestido azul frente a un arco en el estudio · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/corporativo-serio.jpg" alt="Retrato corporativo de hombre con saco azul sobre fondo negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/retrato-amigas.jpg" alt="Sesión de dos amigas con vestidos negros en el estudio · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/retrato-mujer-estudio.jpg" alt="Retrato de mujer con vestido negro en el estudio · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/retrato-lentejuelas.jpg" alt="Retrato de mujer con vestido de lentejuelas · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/corporativo-sonrisa.jpg" alt="Retrato de marca personal de hombre sonriendo sobre fondo negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/retrato-perfil.jpg" alt="Retrato de perfil en estudio con vestido negro · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/retrato-negro-suelo.jpg" alt="Retrato de mujer con vestido negro sentada en el estudio · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+      <div class="pgroup" id="p-graduacion">
+        <div class="pgroup-head reveal"><h3>Graduaciones</h3><p>Retratos para celebrar el logro, con toga, birrete y estilo.</p><a class="plink" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n%20de%20graduaciones" target="_blank" rel="noopener">Cotizar graduaciones →</a></div>
+        <div class="gallery">
+          <figure><img src="img/graduacion-escalera.jpg" alt="Graduado con estola dorada bajando una escalera de caracol · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/graduacion-retrato.jpg" alt="Retrato de graduado con birrete apoyado en una pared de madera · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+      <div class="pgroup" id="p-exterior">
+        <div class="pgroup-head reveal"><h3>Exterior y conceptos</h3><p>Sesiones al aire libre y conceptos creativos de cumpleaños.</p><a class="plink" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n%20de%20exterior%20y%20conceptos" target="_blank" rel="noopener">Cotizar exterior y conceptos →</a></div>
+        <div class="gallery">
+          <figure><img src="img/exterior-sombrero.jpg" alt="Sesión en exterior de joven con sombrero y corsé · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/creativo-pastel.jpg" alt="Fotografía conceptual de cumpleaños con tacones blancos y pastel · Colón Photography, San Francisco de Macorís" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+      <div class="g-more">
+        <a class="btn fill" href="https://claude.ai/artifact/BcbJGMuCHCwMwDWKMZ731M" target="_blank" rel="noopener">Ver catálogo de servicios</a>
+        <a class="btn" href="https://claude.ai/artifact/UwBuKm2ozCdqcJ2v6QvAbH" target="_blank" rel="noopener">Reservar mi sesión</a>
+        <a class="btn" href="https://www.instagram.com/colonphotography/" target="_blank" rel="noopener">Instagram</a>
+      </div>
     </div>
   </section>
 
@@ -324,7 +385,7 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
             <li>Estudio para hasta 4 personas por sesión.</li>
             <li>Bodas y eventos: cotización personalizada tras una reunión previa.</li>
           </ul>
-          <div><a class="btn fill" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20reservar%20una%20sesi%C3%B3n%20con%20Col%C3%B3n%20Photography" target="_blank" rel="noopener">Escribir al 829-315-9791</a></div>
+          <div class="hero-actions"><a class="btn fill" href="https://claude.ai/artifact/UwBuKm2ozCdqcJ2v6QvAbH" target="_blank" rel="noopener">Reservar en línea</a><a class="btn" href="https://wa.me/18293159791?text=Hola%2C%20quiero%20reservar%20una%20sesi%C3%B3n%20con%20Col%C3%B3n%20Photography" target="_blank" rel="noopener">WhatsApp 829-315-9791</a><a class="btn" href="https://claude.ai/artifact/BcbJGMuCHCwMwDWKMZ731M" target="_blank" rel="noopener">Ver catálogo</a></div>
           <p class="contact">San Francisco de Macorís, provincia Duarte, República Dominicana · <a href="https://www.instagram.com/colonphotography/" target="_blank" rel="noopener">@colonphotography</a></p>
         </div>
       </div>
@@ -343,6 +404,8 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
       <a href="https://www.instagram.com/colonphotography/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.facebook.com/photographycolon" target="_blank" rel="noopener">Facebook</a>
       <a href="https://wa.me/18293159791" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://claude.ai/artifact/BcbJGMuCHCwMwDWKMZ731M" target="_blank" rel="noopener">Catálogo</a>
+      <a href="https://claude.ai/artifact/UwBuKm2ozCdqcJ2v6QvAbH" target="_blank" rel="noopener">Reservas</a>
     </div>
   </div>
 </footer>
@@ -356,8 +419,6 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
   var h=document.getElementById('top');
   function onScroll(){h.classList.toggle('solid',window.scrollY>40)}
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
-  var bs=document.querySelectorAll('.filters button'),fs=document.querySelectorAll('.gallery figure');
-  bs.forEach(function(b){b.addEventListener('click',function(){var f=b.dataset.f;bs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});fs.forEach(function(g){g.classList.toggle('hide',f!=='all'&&g.dataset.cat!==f);g.classList.add('in')})})});
   var els=document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
