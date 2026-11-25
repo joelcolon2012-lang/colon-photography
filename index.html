@@ -193,6 +193,39 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
   .nav .btn{display:none}
 }
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* Filosofía */
+#filosofia{padding-top:40px}
+.filo{border:1px solid var(--line);background:var(--ink-2)}
+.filo>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:40px clamp(24px,5vw,64px);flex-wrap:wrap}
+.filo>summary::-webkit-details-marker{display:none}
+.filo>summary h2{margin:8px 0 0}
+.filo>summary .toggle{border:1px solid var(--gold);color:var(--cream);padding:14px 26px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center}
+.filo>summary:hover .toggle{background:rgba(201,162,74,.12)}
+.filo>summary:focus-visible{outline:1px solid var(--gold);outline-offset:-6px}
+.filo .t-close{display:none}.filo[open] .t-open{display:none}.filo[open] .t-close{display:inline}
+.filo-body{padding:0 clamp(24px,5vw,64px) 56px;display:grid;gap:0}
+.ch{display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:clamp(20px,4vw,56px);padding:44px 0;border-top:1px solid var(--line)}
+.ch-n{font-family:var(--serif);font-size:1rem;color:var(--muted)}
+.ch-n b{display:block;font-family:var(--sans);font-weight:500;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.ch h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.15;margin:0 0 16px}
+.ch p{color:var(--muted);max-width:62ch;margin:0 0 12px}
+.sym{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:8px}
+.sym>div{display:flex;gap:18px;align-items:flex-start}
+.sym svg{width:46px;height:50px;flex:none;color:var(--cream)}
+.sym .sq{width:22px;height:22px;flex:none;background:var(--goldgrad);margin:14px 12px}
+.sym h4{font-family:var(--sans);font-weight:500;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;margin:0 0 6px}
+.sw{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px}
+.sw div span{display:block;aspect-ratio:1/1.15;border:1px solid var(--line);margin-bottom:12px}
+.sw strong{display:block;font-weight:500;font-size:.9rem}
+.sw small{font-size:.66rem;letter-spacing:.22em;color:var(--gold)}
+.dna{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:18px}
+.dna li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:baseline}
+.dna li>span{font-family:var(--serif);color:var(--gold);font-size:1.1rem}
+.dna strong{font-weight:500}
+.dna p{margin:2px 0 0}
+.lema{font-family:var(--serif);font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.1;margin:0 0 16px}
+@media (max-width:760px){.ch{grid-template-columns:1fr;gap:14px;padding:34px 0}.sw{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -218,6 +251,7 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
       <ul>
         <li><a href="#portafolio">Portafolio</a></li>
         <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#filosofia">Filosofía</a></li>
         <li><a href="#proceso">Experiencia</a></li>
         <li><a href="catalogo-colon-photography-2026.pdf" target="_blank" rel="noopener">Catálogo</a></li>
         <li><a href="#reservar">Reservar</a></li>
@@ -425,6 +459,67 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
     </div>
   </section>
 
+  <section id="filosofia">
+    <div class="wrap">
+      <details class="filo reveal">
+        <summary>
+          <div><span class="caps">Nuestra filosofía</span><h2>El ADN de <em>nuestra marca</em>.</h2></div>
+          <span class="toggle"><span class="t-open">Leer nuestra filosofía +</span><span class="t-close">Cerrar −</span></span>
+        </summary>
+        <div class="filo-body">
+          <article class="ch">
+            <div class="ch-n">01<b>La portada</b></div>
+            <div><h3>Nueva identidad · 2026</h3><p>En 2026 renovamos la imagen de Colón Photography. Esta es la historia detrás de ese cambio: por qué lo hicimos, qué significa cada elemento y los principios que guían cada sesión.</p></div>
+          </article>
+          <article class="ch">
+            <div class="ch-n">02<b>Por qué el cambio</b></div>
+            <div><h3>No vendemos fotografías. <em>Creamos una experiencia.</em></h3><p>Renovamos nuestra identidad para reflejar lo que de verdad entregamos: tiempo, cuidado y la tranquilidad de saber que tu historia está en buenas manos.</p></div>
+          </article>
+          <article class="ch">
+            <div class="ch-n">03<b>El símbolo</b></div>
+            <div>
+              <h3>Una letra y un punto de luz.</h3>
+              <div class="sym">
+                <div><svg viewBox="0 0 92 100" aria-hidden="true"><use href="#cmark"/></svg><div><h4>La C</h4><p>De Colón. Sólida y abierta, como un lente que deja entrar la luz.</p></div></div>
+                <div><span class="sq" aria-hidden="true"></span><div><h4>El cuadro dorado</h4><p>El encuadre. Ese punto exacto de luz donde vive la historia.</p></div></div>
+              </div>
+            </div>
+          </article>
+          <article class="ch">
+            <div class="ch-n">04<b>La paleta</b></div>
+            <div>
+              <h3>Colores que se <em>sienten</em>, como materiales.</h3>
+              <div class="sw">
+                <div><span style="background:#050505"></span><strong>Negro profundo</strong><small>SOMBRA</small></div>
+                <div><span style="background:#8c857a"></span><strong>Piedra</strong><small>TEXTURA</small></div>
+                <div><span style="background:#efe9dd"></span><strong>Crema</strong><small>LUZ</small></div>
+                <div><span style="background:#4a3426"></span><strong>Madera oscura</strong><small>CALIDEZ</small></div>
+                <div><span style="background:#c9a24d"></span><strong>Dorado</strong><small>INTENCIÓN</small></div>
+              </div>
+            </div>
+          </article>
+          <article class="ch">
+            <div class="ch-n">05<b>Nuestro ADN</b></div>
+            <div>
+              <h3>Cinco principios que <em>no negociamos</em>.</h3>
+              <ol class="dna">
+                <li><span>01</span><div><strong>Menos es más</strong><p>Una estética sobria, sin ruido.</p></div></li>
+                <li><span>02</span><div><strong>Sets conceptuales</strong><p>Escenarios con sentido, no decoración.</p></div></li>
+                <li><span>03</span><div><strong>Luz suave, estilo Rembrandt</strong><p>Volumen, profundidad y calma.</p></div></li>
+                <li><span>04</span><div><strong>Menos sesiones, más tiempo</strong><p>Cada cliente recibe atención completa.</p></div></li>
+                <li><span>05</span><div><strong>Entrega curada</strong><p>Solo lo mejor, presentado con cuidado.</p></div></li>
+              </ol>
+            </div>
+          </article>
+          <article class="ch">
+            <div class="ch-n">06<b>Nuestro lema</b></div>
+            <div><p class="lema">La luz, <em>contada</em> con intención.</p><p>Cada decisión, desde la luz hasta la entrega, tiene un porqué. Nada está ahí por casualidad.</p><p>Tu historia merece ser vista, sentida y recordada.</p></div>
+          </article>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <section id="proceso">
     <div class="wrap">
       <div class="head reveal">
@@ -492,5 +587,7 @@ footer{padding:60px 0 50px;border-top:1px solid var(--line)}
   els.forEach(function(e){io.observe(e)});
 })();
 </script>
+<script>(function(){var d=document.querySelector('.filo');function o(){if(location.hash==='#filosofia'&&d)d.open=true}document.querySelectorAll('a[href="#filosofia"]').forEach(function(a){a.addEventListener('click',function(){d.open=true})});window.addEventListener('hashchange',o);o()})();</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
